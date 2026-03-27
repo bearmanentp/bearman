@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 곰돌맨 | Bearman Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --neon-blue: #00d4ff;
+            --dark-bg: #050505;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark-bg);
+            color: #ffffff;
+            font-family: 'Pretendard', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Three.js Background Canvas */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        /* Layout Styling */
+        .content-section {
+            padding: 100px 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        }
+
+        .neon-title {
+            color: var(--neon-blue);
+            text-shadow: 0 0 15px rgba(0, 212, 255, 0.6);
+            font-weight: 800;
+            margin-bottom: 30px;
+        }
+
+        /* 경력 리스트 스타일 */
+        .career-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .career-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 40px;
+            border-left: 2px solid var(--neon-blue);
+        }
+
+        .career-item::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            background: var(--neon-blue);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--neon-blue);
+        }
+
+        .career-title {
+            font-size: 1.5rem;
+            color: var(--neon-blue);
+            margin-bottom: 10px;
+        }
+
+        .detail-list {
+            list-style: square;
+            padding-left: 20px;
+            color: #cccccc;
+        }
+
+        .detail-list li {
+            margin-bottom: 8px;
+        }
+
+        /* 연락처 버튼 */
+        .contact-btn {
+            display: inline-block;
+            padding: 12px 25px;
+            margin: 10px;
+            border: 1px solid var(--neon-blue);
+            color: var(--neon-blue);
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s;
+            background: rgba(0, 212, 255, 0.05);
+        }
+
+        .contact-btn:hover {
+            background: var(--neon-blue);
+            color: #000;
+            box-shadow: 0 0 20px var(--neon-blue);
+        }
+
+        footer {
+            padding: 50px 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="bg-canvas"></canvas>
+
+    <section class="content-section">
+        <div class="container text-center">
+            <h1 class="display-2 neon-title">Smartly Creating the World</h1>
+            <p class="fs-4 mt-4">세상을 더 지능적으로 만드는 개발자, <strong>곰돌맨</strong>입니다.</p>
+            <p class="text-secondary">로블록스 시스템 설계부터 파이썬 자동화까지, 기술의 경계를 허뭅니다.</p>
+        </div>
+    </section>
+
+    <section id="career" class="content-section">
+        <div class="container">
+            <div class="glass-card">
+                <h2 class="neon-title mb-5">Professional Experience</h2>
+                
+                <ul class="career-list">
+                    <li class="career-item">
+                        <div class="career-title">직급 경력</div>
+                        <p class="text-secondary mb-3">2026.03.27 기준</p>
+                        <ul class="detail-list">
+                            <li>Neuro Stack 대표</li>
+                            <li>Geek Byte 대표</li>
+                            <li>울산 버스 운전 시뮬레이터 부총괄 급 직급</li>
+                        </ul>
+                    </li>
+
+                    <li class="career-item">
+                        <div class="career-title"개발한 것들</div>
+                        <p class="text-secondary mb-3">2026.03.27 기준</p>
+                        <ul class="detail-list">
+                            <li>울산 버스 시뮬레이터(Ulsan Bus Simulator) 핵심 시스템 개발</li>
+                            <li>한국계 로블록스에서 두 번째로 NPC 승객 기능 개발</li>
+                            <li>디스코드봇 "대운봇" 개발</li>
+                        </ul>
+                    </li>
+
+                    <li class="career-item">
+                        <div class="career-title">판매상품</div>
+                        <p class="text-secondary mb-3">2026.03.27 기준</p>
+                        <ul class="detail-list">
+                            <li>값싸고 고급진 디스코드봇 주문제작</li>
+                            <li>값싸고 고급진 사이트 주문제작</li>
+                            <li>값싸고 고급진 PC 프로그램 주문제작</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="content-section">
+        <div class="container text-center">
+            <div class="glass-card">
+                <h2 class="neon-title mb-4">Contact</h2>
+                <p class="mb-5">협업 제안이나 기술적 문의는 언제든 아래 연락처로 연락주세요.</p>
+                
+                <div class="d-flex justify-content-center flex-wrap">
+                    <a href="mailto:bearman.entp@egmail.com" class="contact-btn">📧 Email: bearman.entp@gmail.com</a>
+                    <a href="#" class="contact-btn">💬 Discord: bearman.entp -가장 추천하는 연락처</a>
+                    <a href="https://www.instagram.com/bearman_entp/" class="contact-btn">📸 Instagram: bearman_entp</a>
+                    <a href="https://github.com/bearmanentp/" class="contact-btn">🔗 GitHub: bearmanentp</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Gomdolman. Powered by Three.js & Bootstrap.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // Three.js 우주 배경 (Blue Starfield)
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('bg-canvas'), antialias: true });
+        
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+
+        // 별 입자 생성
+        const starsGeometry = new THREE.BufferGeometry();
+        const starsCount = 8000;
+        const posArray = new Float32Array(starsCount * 3);
+
+        for(let i = 0; i < starsCount * 3; i++) {
+            posArray[i] = (Math.random() - 0.5) * 2000;
+        }
+        starsGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+
+        const starsMaterial = new THREE.PointsMaterial({
+            size: 1.2,
+            color: 0x00aaff,
+            transparent: true,
+            opacity: 0.7,
+            blending: THREE.AdditiveBlending
+        });
+
+        const starMesh = new THREE.Points(starsGeometry, starsMaterial);
+        scene.add(starMesh);
+
+        camera.position.z = 5;
+
+        // 마우스 움직임에 따른 배경 반응 (심화 효과)
+        let mouseX = 0;
+        let mouseY = 0;
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animate() {
+            requestAnimationFrame(animate);
+            
+            starMesh.rotation.y += 0.0003;
+            starMesh.rotation.x += 0.0001;
+
+            // 마우스 상호작용
+            const targetX = (mouseX - window.innerWidth / 2) * 0.00005;
+            const targetY = (mouseY - window.innerHeight / 2) * 0.00005;
+            starMesh.position.x += (targetX - starMesh.position.x) * 0.05;
+            starMesh.position.y += (-targetY - starMesh.position.y) * 0.05;
+
+            renderer.render(scene, camera);
+        }
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        animate();
+    </script>
+</body>
+</html>
